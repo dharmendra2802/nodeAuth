@@ -1,0 +1,59 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card shadow bg-white rounded" style="width: 24rem;">
+
+   
+    <div class="d-flex justify-content-center pt-2">
+      <% if(locals.user.profilePicture != '') { %>
+        <img src='<%=locals.user.profilePicture%>' class="card-img-top" alt="">
+      <% }else { %>
+        <img src='/image/download.png' alt="profilePicture" class="card-img-top img-fluid img-thumbnail " style="max-width: 180px; max-width: 180px;border-radius:50%">
+      <% } %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title text-capitalize "><%= locals.user.name %></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"> <%= locals.user.email %></li>
+    </ul>
+    <div class="card-body">
+      <p href='#' class="btn btn-outline-danger card-link " data-bs-toggle="modal" data-bs-target="#chngePassword">Change Password</p>
+      <a href="/user/destroy" class="card-link">Signout</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="chngePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/user/edit/password/<%= locals.user._id%> " method="post">
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="current password" name="currentPass" required>
+            <label for="floatingInput">Enter your current password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="newPass" required>
+            <label for="floatingPassword">Enter your new password</label>
+          </div>
+
+          <div class="form-floating mb-3 ">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="confirmPass" required>
+            <label for="floatingPassword">Confirm your new password</label>
+          </div>
+
+          <div class="d-flex justify-content-center ">
+            <button type="submit" class="btn btn-outline-success col-6" data-bs-dismiss="modal">Submit</button>
+          </div>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

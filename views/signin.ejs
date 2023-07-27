@@ -1,0 +1,47 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="row shadow bg-white rounded p-2" style="width: 40%;">
+
+    <form  class="" action="/user/signin/createSession" method="POST">
+
+    <h2 class="text-center">Login</h2>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="signinEmail" placeholder="Your email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Your password</label>
+      <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="password" name="password" required>
+      <div id="passwordHelpBlock" class="form-text ">
+        <a href="#" id="forgotButton">Forgot Password?</a>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <input type="submit" class="col-md-6 btn btn-primary mb-3 " value="Signin">
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <small>or signin using</small>
+      <div class="mt-2">
+        
+        <a href="/user/auth/google" class="m-2 text-decoration-none"> 
+          <ion-icon name="logo-google" size="large"></ion-icon>        
+        </a>
+        <a href="/user/auth/facebook" >
+          <ion-icon name="logo-facebook" size="large"></ion-icon>        
+        </a>
+
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <small>Dont have an Account? <a href="/user/signup" >SignUp</a></small>
+    </div>
+
+    </form>
+  </div>
+</div>
+
+
+<script src="/js/forgotPassword.js"></script>
