@@ -68,20 +68,22 @@ $(document).ready(function() {
         
         // correcting email
         $('#otpSend').addClass('hide');
-        $('#emailBox').addClass('col-12');
+        $('#emailBox').addClass('col-12 ');
+        $('#userEmail').addClass('border');
+
         
         $('#otpBox').addClass('hide');
 
         $('#otpSendBox').addClass('hide');
-        $('#otpSignup').removeClass('disabled btn-dark');
-        $('#otpSignup').addClass('btn-success');
+        $('#Signupbtn').removeClass('disabled btn-dark');
+        $('#Signupbtn').addClass('btn-success');
         
     }
 
     function validTime()
     {
         $('#otpMsg').html('OTP sent to your email');
-        let remainingTime = 20; // Start with 60 seconds
+        let remainingTime = 60 // Start with 60 seconds
 
         // Display initial value of 60
         const intervalId = setInterval(function() {

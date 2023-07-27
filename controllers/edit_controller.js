@@ -1,6 +1,5 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
-const Noty = require('noty');
 const mailer = require('../mailer/password');
 
 module.exports.changePassword = async function(req, res) {

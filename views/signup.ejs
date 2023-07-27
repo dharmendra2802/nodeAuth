@@ -1,13 +1,13 @@
 <div class="container d-flex justify-content-center align-items-center " style="height: 100vh;">
   <div class="row p-2 shadow bg-white rounded" style="width: 40%;">
-
-    <form  action="/user/signup/createUser"  enctype="multipart/form-data" method="POST">
+    <form  action="/user/signup/createUser"  enctype="multipart/form-data" method="POST" id="signupForm">
 
       <h2 class="text-center mb-4">SignUp</h2>
 
       <div class="mb-3">
         <input type="text" class="form-control"  placeholder="Your name" id="userName" name="name" required>
       </div>
+
       <div class="mb-3">
           <div class="row ">
             <div class="col-9" id="emailBox">
@@ -35,6 +35,7 @@
           </div>          
       </div>
 <!--  -->
+
       <div class="mb-3">
         <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Your password" name="password" required>
       </div>
@@ -49,22 +50,23 @@
       
 
       <div class="d-flex justify-content-center ">
-        <input type="submit" class="col-md-6 btn btn-dark mb-3 disabled " id="otpSignup" value="SignUp">
+        <input type="submit" class="col-md-6 btn btn-dark mb-3 disabled " id="Signupbtn" value="SignUp">
       </div>
   
       <!--  -->
-      <div class="d-flex justify-content-center align-items-center flex-column">
-        <small>or signup using</small>
-        <div class="mt-2">
 
-          <a href="/user/auth/google" class="m-2 text-decoration-none"> 
-            <ion-icon name="logo-google" size="large"></ion-icon>        
+      <div class="d-flex justify-content-center align-items-center flex-column ">
+        <small>or signup using</small>
+        
+        <div class=" d-flex align-content-center g-1 ">
+          <a href="/user/auth/google" class="m-2 text-decoration-none "> 
+            <img src="/image/google.png" alt="google" class="icons">       
           </a>
-          <a href="/user/auth/facebook" >
-            <ion-icon name="logo-facebook" size="large"></ion-icon>        
+          <a href="/user/auth/facebook"  class="m-2 text-decoration-none col-1">
+            <img src="/image/facebook.png" alt="facebook" class="icons">       
           </a>
-  
         </div>
+
       </div>
   
       <div class="mt-2">

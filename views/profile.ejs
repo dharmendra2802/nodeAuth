@@ -1,14 +1,14 @@
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
   <div class="card shadow bg-white rounded" style="width: 24rem;">
 
-   
     <div class="d-flex justify-content-center pt-2">
       <% if(locals.user.profilePicture != '') { %>
-        <img src='<%=locals.user.profilePicture%>' class="card-img-top" alt="">
+        <img src='<%=locals.user.profilePicture%>' class="card-img-top img-fluid img-thumbnail shadow-sm " alt="user-profile" style="max-width: 180px; max-width: 180px;border-radius:50%">
       <% }else { %>
-        <img src='/image/download.png' alt="profilePicture" class="card-img-top img-fluid img-thumbnail " style="max-width: 180px; max-width: 180px;border-radius:50%">
+        <img src='/image/download.png' alt="profilePicture" class="card-img-top img-fluid img-thumbnail shadow-sm " style="max-width: 180px; max-width: 180px;border-radius:50%">
       <% } %>
     </div>
+    
     <div class="card-body">
       <h5 class="card-title text-capitalize "><%= locals.user.name %></h5>
     </div>
@@ -16,7 +16,12 @@
       <li class="list-group-item"> <%= locals.user.email %></li>
     </ul>
     <div class="card-body">
-      <p href='#' class="btn btn-outline-danger card-link " data-bs-toggle="modal" data-bs-target="#chngePassword">Change Password</p>
+      <% if(locals.user.localUser) { %>
+        <p href='#' class="btn btn-outline-danger card-link " data-bs-toggle="modal" data-bs-target="#chngePassword">Change Password</p>
+      <% }else { %>
+        <p href='#' class="btn btn-outline-danger card-link disabled  " data-bs-toggle="modal" data-bs-target="#chngePassword">Change Password</p>
+      <% } %>
+      
       <a href="/user/destroy" class="card-link">Signout</a>
     </div>
   </div>
@@ -35,7 +40,7 @@
         <form action="/user/edit/password/<%= locals.user._id%> " method="post">
 
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="current password" name="currentPass" required>
+            <input type="password" class="form-control border-1 " id="floatingInput" placeholder="current password" name="currentPass" required>
             <label for="floatingInput">Enter your current password</label>
           </div>
           <div class="form-floating mb-3">

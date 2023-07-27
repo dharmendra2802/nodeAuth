@@ -24,6 +24,8 @@ passport.use(new googleStrat({
                 name:profile.displayName,
                 email:profile.emails[0].value,
                 password:genPass,
+                profilePicture:"",
+                localUser:false
             })
             return done(null,newUser);
         }

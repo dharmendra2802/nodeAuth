@@ -4,12 +4,16 @@ const passport = require('passport');
 // controllers
 const user_controller = require('../controllers/user_controller');
 
-// profile
-router.get('/profile/',passport.checkAuthentication,user_controller.profile);
+// redirect to other routes
+
 // edit
 router.use('/edit',require('./edit'));
 // password
 router.use('/password',require('./password'));
+// 
+
+// profile
+router.get('/profile/',passport.checkAuthentication,user_controller.profile);
 
 // destroy session
 router.get('/destroy',user_controller.destroy);
@@ -32,7 +36,7 @@ router.post('/signin/createSession',passport.authenticate(
     }
 ),user_controller.createSession);
 
-// // google
+// google auth
 router.get('/auth/google',passport.authenticate(
     'google',
     {
@@ -46,8 +50,9 @@ router.get('/auth/google/callback',passport.authenticate(
         failureRedirect: '/user/signin'
     }
 ),user_controller.createSession);
+// ////// 
 
-// facebook
+// facebook auth
 router.get('/auth/facebook',passport.authenticate(
     'facebook',
     
@@ -59,6 +64,8 @@ router.get('/auth/facebook/callback',passport.authenticate(
         failureRedirect:'/user/signin'
     }
 ),user_controller.createSession);
+
+// ///
 
 
 // export

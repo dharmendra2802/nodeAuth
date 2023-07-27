@@ -20,18 +20,21 @@ passport.use(new facebookStrat({
         else
         {
             console.log(profile)
-            const pass = cryto.randomBytes(20).toString('hex');
-            const genPass = await bcrypt.hash(pass,8);
+            const pass =  cryto.randomBytes(20).toString('hex');
+            const genPass = await bcrypt.hash(pass,10);
             const newUser = await User.create({
                 name:profile.displayName,
                 email:profile.email || profile.id,
-                // profilePicture: profile.photos
                 password:genPass,
+                profilePicture:'',
+                localUser:false
+
             })
 
             return done(null,newUser);
         }
     } catch (error) {
+        
         console.log("Error in FaceBook Passport - "+error);
         return done(error,false);
     }

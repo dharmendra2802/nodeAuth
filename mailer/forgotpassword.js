@@ -6,7 +6,7 @@ exports.linkSend = (body) =>{
     const mailOptions = {
         from: 'Node AuthAPP',
         to: body.EMAIL,
-        subject: 'Verify Email',
+        subject: 'Password Reset',
         html: `
             <div>
                 <h1>Hi</h1>

@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
     profilePicture:{
             type:String
     },
+    localUser:{
+        type:Boolean,
+        default: true
+    }
 },{timestamps:true});
 
 const User = mongoose.model('User',userSchema);
