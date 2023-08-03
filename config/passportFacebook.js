@@ -3,11 +3,12 @@ const facebookStrat = require('passport-facebook').Strategy;
 const cryto = require('crypto');
 const bcrypt = require('bcrypt');
 const User = require('../models/userModel');
+const env = require('./environment');
 
 passport.use(new facebookStrat({
-    clientID:"1378543856035951",
-    clientSecret:"8f739792f27bea0a597c068a67599064",
-    callbackURL:"http://localhost:5000/user/auth/facebook/callback",
+    clientID: env.facebook_clientID,
+    clientSecret: env.facebook_clientSecret,
+    callbackURL: env.facebook_callbackURL,
     profileFields: ['displayName', 'photos', 'email'],
 
 }, async function(accessToken,refreshToken,profile,done){

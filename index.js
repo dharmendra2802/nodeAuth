@@ -1,10 +1,11 @@
 const express = require('express');
 const expresslayout = require('express-ejs-layouts')
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
 // mongodb
 const db = require('./config/mongoose');
 // passport setup
-
 const passport = require('./config/passportLocal');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -15,13 +16,16 @@ const passportFacebook = require('./config/passportFacebook');
 const flash = require('connect-flash');
 const flashMiddle = require('./config/flash');
 
+//env 
+const env = require('./config/environment');
+
 const path = require('path');
 const PORT = 5000;
 
 
 const app = express();
 // setting up static file
-app.use(express.static(path.join(__dirname , 'assets')));
+app.use(express.static(path.join(__dirname , env.asset_path)));
 // multer
 app.use('/uploads' , express.static(__dirname+'/uploads'));
 
@@ -35,19 +39,21 @@ app.use(expresslayout);
 app.set('layout extractStyles' , true);
 app.set('layout extractScripts' , true);
 
+// logger
+app.use(morgan(env.morgan.mode,env.morgan.options))
 // request conversion
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // passport / session setup
 app.use(session({
-    name:'authenticator',
-    secret:'hash@64',
+    name: env.session_name,
+    secret: env.session_key,
     resave:false,
     saveUninitialized:false,
     cookie:{maxAge:100*60*100},
     store: MongoStore.create({
-        mongoUrl:'mongodb://127.0.0.1:27017/AuthenticatorForm',
+        mongoUrl:`mongodb://127.0.0.1:27017/${env.db_name}`,
         collection:'session',
         autoRemove:'interval',
         autoRemoveInterval: 1,
@@ -63,6 +69,9 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(flashMiddle.setFlash);
 
+
+// gulp
+// const gulp = require('./gulp')
 // setting up route
 app.use('/',require('./routes/index'));
 // 
