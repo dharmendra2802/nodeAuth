@@ -4,6 +4,7 @@ NodeAuth is a backend application built on Express and Node.js that enables user
 sign up and sign in using Google and Facebook, and reset their passwords. This README file provides an overview of the app's functionalities and
 instructions on how to set it up and use it.
 
+
 # Installation
 Clone the repository:
 Copy code
