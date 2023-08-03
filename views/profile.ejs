@@ -2,7 +2,7 @@
   <div class="card shadow bg-white rounded" style="width: 24rem;">
 
     <div class="d-flex justify-content-center pt-2">
-      <% if(locals.user.profilePicture != '') { %>
+      <% if(locals.user.profilePicture !== '') { %>
         <img src='<%=locals.user.profilePicture%>' class="card-img-top img-fluid img-thumbnail shadow-sm " alt="user-profile" style="max-width: 180px; max-width: 180px;border-radius:50%">
       <% }else { %>
         <img src='/image/download.png' alt="profilePicture" class="card-img-top img-fluid img-thumbnail shadow-sm " style="max-width: 180px; max-width: 180px;border-radius:50%">
