@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 // mongodb
 const db = require('./config/mongoose');
 // passport setup
+
 const passport = require('./config/passportLocal');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
