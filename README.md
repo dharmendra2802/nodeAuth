@@ -50,14 +50,14 @@ NodeAuth uses the following authentication strategies:
  **Facebook OAuth2**: Users can sign in and sign up using their Facebook accounts. <br>
 
 # Features
-1. - User can sign in/signup with Facebook and Google  <br>
-2. - On signup users have to first verify their email by entering the OTP which will be valid for 1 minute and then the user can generate a new one
+1.  User can sign in/signup with Facebook and Google  <br>
+2.  On signup users have to first verify their email by entering the OTP which will be valid for 1 minute and then the user can generate a new one
     if it expires  <br>
-3. - Also on the sign in users can use forgot password option to get the link to reset the password on his/her email <br>
+3.  Also on the sign in users can use forgot password option to get the link to reset the password on his/her email <br>
     which will be valid for 5 minutes and can be used just once <br>
-4. - On successful login user can reset the password by entering its current password <br>
-5. - The user can also add a profile picture <br>
-6. - User will get a mail for  <br>
+4.  On successful login user can reset the password by entering its current password <br>
+5.  The user can also add a profile picture <br>
+6.  User will get a mail for  <br>
     - email verification <br>
     - forgot password link <br>
     - informing password is changed <br>
